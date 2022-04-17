@@ -1,31 +1,26 @@
 import textwrap
-import locale
 
 import click
-import requests
 
-from . import __version__
+from . import __version__, wikipedia
 
 
 @click.command()
+@click.option(
+    "--language",
+    "-l",
+    default="en",
+    help="Language edition of Wikipedia",
+    metavar="LANG",
+    show_default=True,
+)
 @click.version_option(version=__version__)
-def main():
+def main(language):
     """The hypermodern Python project."""
+    data = wikipedia.random_page(language=language)
 
-    # Recognize current language with locale
-    # first part of locale language code e.g. 'pl_PL'
-    lang = locale.getlocale()[0].split('_')[0]
-    api_url = f"https://{lang}.wikipedia.org/api/rest_v1/page/random/summary"
+    title = data["title"]
+    extract = data["extract"]
 
-    try:
-        with requests.get(api_url) as response:
-            response.raise_for_status()
-            data = response.json()
-    except requests.exceptions.RequestException as err:
-        error_msg = f'Wikipedia API is not reachable\nError: {err}'
-        click.secho(error_msg, fg="red")
-    else:
-        title = data["title"]
-        extract = data["extract"]
-        click.secho(title, fg="green")
-        click.echo(textwrap.fill(extract))
+    click.secho(title, fg="green")
+    click.echo(textwrap.fill(extract))
