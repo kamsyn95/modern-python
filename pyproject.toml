@@ -12,6 +12,8 @@ repository = "https://github.com/kamsyn95/modern-python"
 python = "^3.8"
 click = "^8.1.2"
 requests = "^2.27.1"
+desert = "^2020.11.18"
+marshmallow = "^3.15.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.1"
@@ -21,6 +23,11 @@ pytest-mock = "^3.7.0"
 platformdirs = "^2.5.2"
 black = "^22.3.0"
 flake8 = "^4.0.1"
+mypy = "^0.942"
+pytype = {version = "^2022.4.15", python = "3.8"}
+types-requests = "^2.27.19"
+typeguard = "^2.13.3"
+flake8-annotations = "^2.9.0"
 
 [tool.poetry.scripts]
 modern-python = "modern_python.console:main"
