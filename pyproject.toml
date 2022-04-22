@@ -14,20 +14,26 @@ click = "^8.1.2"
 requests = "^2.27.1"
 desert = "^2020.11.18"
 marshmallow = "^3.15.0"
+#platformdirs = "^2.5.2"
+#py = "^1.11"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.1"
 coverage = {extras = ["toml"], version = "^6.3.2"}
 pytest-cov = "^3.0.0"
 pytest-mock = "^3.7.0"
-platformdirs = "^2.5.2"
 black = "^22.3.0"
 flake8 = "^4.0.1"
 mypy = "^0.942"
 pytype = {version = "^2022.4.15", python = "3.8"}
-types-requests = "^2.27.19"
+types-requests = "^2.27.20"
 typeguard = "^2.13.3"
 flake8-annotations = "^2.9.0"
+flake8-bandit = "^3.0.0"
+flake8-black = "^0.3.2"
+flake8-bugbear = "^22.3.23"
+flake8-import-order = "^0.18.1"
+safety = "^1.10.3"
 
 [tool.poetry.scripts]
 modern-python = "modern_python.console:main"
